@@ -3,15 +3,6 @@ workflows:
     name: Android Workflow
     max_build_duration: 120
     environment:
-      groups:
-        - keystore_credentials # <-- (Includes CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_PASSWORD, CM_KEY_ALIAS)
-        - google_play # <-- (Includes GCLOUD_SERVICE_ACCOUNT_CREDENTIALS)
-        - other
-        # Add the above group environment variables in Codemagic UI (either in Application/Team variables) - https://docs.codemagic.io/variables/environment-variable-groups/
-      vars:
-        CM_KEYSTORE_PATH: /tmp/keystore.keystore
-        PACKAGE_NAME: 'YOUR PACKAGE NAME' # <-- Put your package name here e.g. "io.codemagic.flutteryaml"
-        GOOGLE_PLAY_TRACK: 'alpha' # <-- Any default or custom track that is not in ‘draft’ status
       flutter: stable
       xcode: latest
       cocoapods: default
@@ -46,23 +37,3 @@ workflows:
       - build/**/outputs/apk/**/*.apk
       - build/**/outputs/**/mapping.txt
       - flutter_drive.log
-    publishing:
-      # See the following link for details about email publishing - https://docs.codemagic.io/yaml-publishing/email
-      email:
-        recipients:
-          - user_1@example.com
-          - user_2@example.com
-        notify:
-          success: true # To receive a notification when a build succeeds
-          failure: false # To not receive a notification when a build fails
-      slack:
-        # See the following link about how to connect your Slack account - https://docs.codemagic.io/yaml-publishing/slack
-        channel: '#builds'
-        notify_on_build_start: true # To receive a notification when a build starts
-        notify:
-          success: true # To receive a notification when a build succeeds
-          failure: false # To not receive a notification when a build fails
-      google_play:
-        credentials: $GCLOUD_SERVICE_ACCOUNT_CREDENTIALS
-        track: $GOOGLE_PLAY_TRACK
-        in_app_update_priority: 0
