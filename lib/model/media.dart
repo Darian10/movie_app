@@ -11,13 +11,13 @@ class Media {
 
   factory Media(String video, Map jsonMap) {
     try {
-      if (video == "Peliculas")
+      if (video == "Peliculas") {
         return Media.deserializeMovie(jsonMap);
-      else {
+      } else {
         return Media.deserializeTv(jsonMap);
       }
     } catch (ex) {
-      throw ex;
+      rethrow;
     }
   }
 

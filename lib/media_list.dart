@@ -5,12 +5,13 @@ import 'model/media.dart';
 import 'media_list_item.dart';
 
 class MediaList extends StatefulWidget {
-  late final String mediaType;
-  late final String video;
-  MediaList(this.video, this.mediaType);
+  final String mediaType;
+  final String video;
+  // ignore: use_key_in_widget_constructors
+  const MediaList(this.video, this.mediaType);
 
   @override
-  _MediaListState createState() => new _MediaListState();
+  _MediaListState createState() => _MediaListState();
 }
 
 class _MediaListState extends State<MediaList> {
@@ -19,7 +20,6 @@ class _MediaListState extends State<MediaList> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     scrollController = ScrollController();
     loadMovies();
@@ -27,7 +27,6 @@ class _MediaListState extends State<MediaList> {
 
   @override
   void didUpdateWidget(covariant MediaList oldWidget) {
-    // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     loadMovies();
   }
@@ -38,7 +37,7 @@ class _MediaListState extends State<MediaList> {
 
     setState(() {
       scrollController.animateTo(0,
-          duration: Duration(milliseconds: 50), curve: Curves.easeOut);
+          duration: const Duration(milliseconds: 50), curve: Curves.easeOut);
       media.clear();
       media.addAll(movies);
     });

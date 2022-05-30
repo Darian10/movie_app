@@ -1,5 +1,5 @@
-final String imageUrlMedium = "https://image.tmdb.org/t/p/w300";
-final String imageUrlLarge = "https://image.tmdb.org/t/p/w500";
+const String imageUrlMedium = "https://image.tmdb.org/t/p/w300";
+const String imageUrlLarge = "https://image.tmdb.org/t/p/w500";
 
 String getMediumPictureUrl(String path) {
   return imageUrlMedium + path;
@@ -43,7 +43,7 @@ List<String?> genresToList(List<dynamic> genreIds) =>
     genreIds.map((id) => genreMap[id]).toList();
 
 String getGenreValues(List<dynamic> genreIds) {
-  StringBuffer buffer = new StringBuffer();
+  StringBuffer buffer = StringBuffer();
   buffer.writeAll(genresToList(genreIds), ", ");
   return buffer.toString();
 }

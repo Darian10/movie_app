@@ -43,8 +43,10 @@ String getUnEncodePath(String video, String mediaType) {
       return "3/movie/upcoming";
     } else if (mediaType == "Mejor valoradas") {
       return "3/movie/top_rated";
-    } else
+    } else {
       return "";
+    }
+    ;
   } else if (video == "Television") {
     if (mediaType == "Populares") {
       return "3/tv/popular";
@@ -52,8 +54,10 @@ String getUnEncodePath(String video, String mediaType) {
       return "3/tv/airing_today";
     } else if (mediaType == "Mejor valoradas") {
       return "3/tv/top_rated";
-    } else
+    } else {
       return "";
-  } else
+    }
+  } else {
     return "";
+  }
 }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/model/media.dart';
 
+// ignore: must_be_immutable
 class MediaItem extends StatelessWidget {
   late Media media;
 
-  MediaItem(this.media);
+  MediaItem(this.media, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,9 @@ class MediaItem extends StatelessWidget {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: 300,
-                fadeInDuration: Duration(milliseconds: 40),
+                fadeInDuration: const Duration(milliseconds: 40),
                 image: media.getBackDropUrl()),
-            Divider(),
+            const Divider(),
             Text(media.overview),
           ],
         ));

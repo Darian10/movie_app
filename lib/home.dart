@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/media_list.dart';
 
-import 'common/httpHandler.dart';
-
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
   @override
-  _HomeState createState() => new _HomeState();
+  _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
@@ -21,9 +20,12 @@ class _HomeState extends State<Home> {
 
   List<BottomNavigationBarItem> getBottom() {
     return [
-      BottomNavigationBarItem(icon: Icon(Icons.thumb_up), label: "Populares"),
-      BottomNavigationBarItem(icon: Icon(Icons.update), label: "Proximamente"),
-      BottomNavigationBarItem(icon: Icon(Icons.star), label: "Mejor valoradas"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.thumb_up), label: "Populares"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.update), label: "Proximamente"),
+      const BottomNavigationBarItem(
+          icon: Icon(Icons.star), label: "Mejor valoradas"),
     ];
   }
 
@@ -34,7 +36,7 @@ class _HomeState extends State<Home> {
         title: const Text("Movie App"),
         actions: [
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Colors.white,
             ),
@@ -45,12 +47,12 @@ class _HomeState extends State<Home> {
       drawer: Drawer(
           child: ListView(
         children: [
-          DrawerHeader(
+          const DrawerHeader(
             child: Material(),
           ),
           ListTile(
-            title: Text("Peliculas"),
-            trailing: Icon(Icons.local_movies),
+            title: const Text("Peliculas"),
+            trailing: const Icon(Icons.local_movies),
             onTap: () {
               Navigator.of(context).pop();
               setState(() {
@@ -58,12 +60,12 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-          Divider(
+          const Divider(
             height: 5,
           ),
           ListTile(
-            title: Text("Television"),
-            trailing: Icon(Icons.live_tv),
+            title: const Text("Television"),
+            trailing: const Icon(Icons.live_tv),
             onTap: () {
               Navigator.of(context).pop();
               setState(() {
@@ -71,15 +73,15 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-          Divider(
+          const Divider(
             height: 5,
           ),
           ListTile(
-            title: Text("Cerrar"),
-            trailing: Icon(Icons.close),
+            title: const Text("Cerrar"),
+            trailing: const Icon(Icons.close),
             onTap: () => Navigator.of(context).pop(),
           ),
-          Divider(
+          const Divider(
             height: 5,
           )
         ],

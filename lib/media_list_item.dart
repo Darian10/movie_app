@@ -4,9 +4,10 @@ import 'model/media.dart';
 import 'media_item.dart';
 
 class MediaListItem extends StatelessWidget {
-  late final Media media;
+  final Media media;
 
-  MediaListItem(this.media);
+  // ignore: use_key_in_widget_constructors
+  const MediaListItem(this.media);
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +21,14 @@ class MediaListItem extends StatelessWidget {
         child: Card(
           child: Column(
             children: [
-              Container(
-                  child: Stack(
+              Stack(
                 children: [
                   FadeInImage.assetNetwork(
                       placeholder: "assets/placeholder.png",
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: 300,
-                      fadeInDuration: Duration(milliseconds: 40),
+                      fadeInDuration: const Duration(milliseconds: 40),
                       image: media.getBackDropUrl()),
                   Positioned(
                       left: 0,
@@ -37,7 +37,7 @@ class MediaListItem extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                             color: Colors.grey[900]?.withOpacity(0.5)),
-                        constraints: BoxConstraints(minHeight: 55),
+                        constraints: const BoxConstraints(minHeight: 55),
                       )),
                   Positioned(
                       left: 10,
@@ -45,19 +45,17 @@ class MediaListItem extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Text(
-                              media.title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
-                            ),
+                          Text(
+                            media.title,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                           Container(
                             padding: const EdgeInsets.only(top: 4.0),
                             child: Text(
                               media.getGenres(),
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
@@ -65,7 +63,7 @@ class MediaListItem extends StatelessWidget {
                         ],
                       ))
                 ],
-              ))
+              )
             ],
           ),
         ));
